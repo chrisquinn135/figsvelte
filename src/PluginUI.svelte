@@ -1,5 +1,4 @@
 <script>
-
 	//import Global CSS from the svelte boilerplate
 	//contains Figma color vars, spacing vars, utility classes and more
 	import { GlobalCSS } from 'figma-plugin-ds-svelte';
@@ -15,25 +14,25 @@
 	//the select menu, its value is bound to the primary buttons disabled prop
 	$: disabled = selectedShape === null;
 
-	function createShapes() {
+	function darkChange() {
 		parent.postMessage({ pluginMessage: { 
-			'type': 'create-shapes'
+			'type': 'dark'
 		} }, '*');
 	}
 
-	function cancel() {
-		parent.postMessage({ pluginMessage: { 'type': 'cancel' } }, '*')
+	function lightChange() {
+		parent.postMessage({ pluginMessage: { 'type': 'light' } }, '*')
 	}
-
 </script>
 
 
 <div class="wrapper p-xxsmall">
-
 	<Label>Darkness Descends on the Components</Label>
-	<Button on:click={cancel} variant="secondary" class="mr-xsmall">Cancel</Button>
-	<Button on:click={createShapes} bind:disabled={disabled}>Create shapes</Button>
-
+	<br/>
+	<br/>
+	<Button on:click={lightChange} bind:disabled={disabled}>Change to Light</Button>
+	<br/>
+	<Button on:click={darkChange} bind:disabled={disabled}>Change to Dark</Button>
 
 </div>
 
