@@ -7,13 +7,6 @@
 	//import some Svelte Figma UI components
 	import { Button, Input, Label, SelectMenu } from 'figma-plugin-ds-svelte';
 
-	//menu items, this is an array of objects to populate to our select menus
-	let menuItems = [
-        { 'value': 'rectangle', 'label': 'Rectangle', 'group': null, 'selected': false },
-        { 'value': 'triangle', 'label': 'Triangle ', 'group': null, 'selected': false },
-        { 'value': 'circle', 'label': 'Circle', 'group': null, 'selected': false }
-	];
-
 	var disabled = true;
 	var selectedShape;
 	var count = 5;
@@ -24,9 +17,7 @@
 
 	function createShapes() {
 		parent.postMessage({ pluginMessage: { 
-			'type': 'create-shapes', 
-			'count': count,
-			'shape': selectedShape.value
+			'type': 'create-shapes'
 		} }, '*');
 	}
 
@@ -39,16 +30,10 @@
 
 <div class="wrapper p-xxsmall">
 
-	<Label>Shape</Label>
-	<SelectMenu bind:menuItems={menuItems} bind:value={selectedShape} class="mb-xxsmall"/>
-	
-	<Label>Count</Label>
-	<Input iconText="#" bind:value={count} class="mb-xxsmall"/>
-
-	<div class="flex p-xxsmall mb-xsmall">
+	<Label>Darkness Descends on the Components</Label>
 	<Button on:click={cancel} variant="secondary" class="mr-xsmall">Cancel</Button>
 	<Button on:click={createShapes} bind:disabled={disabled}>Create shapes</Button>
-	</div>
+
 
 </div>
 
