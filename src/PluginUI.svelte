@@ -5,6 +5,7 @@
 
 	//import some Svelte Figma UI components
 	import { Button, Input, Label, SelectMenu } from 'figma-plugin-ds-svelte';
+	import Tabbar from './components/Tabbar'
 
 	var disabled = true;
 	var selectedShape;
@@ -27,13 +28,13 @@
 
 
 <div class="wrapper p-xxsmall">
+	<Tabbar/>
 	<Label>Darkness Descends on the Components</Label>
 	<br/>
 	<br/>
 	<Button on:click={lightChange} bind:disabled={disabled}>Change to Light</Button>
 	<br/>
 	<Button on:click={darkChange} bind:disabled={disabled}>Change to Dark</Button>
-
 </div>
 
 
