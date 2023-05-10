@@ -1,12 +1,16 @@
 <script>
+    import Tag from "./Tag.svelte";
+
     export let name;
     export let id;
     export let number;
 </script>
 
-<div class="tab">
+<div class="tab text-md-reg">
     {name}
-    {number ? number : ""}
+    {#if number}
+        <Tag {number} />
+    {/if}
 </div>
 
 <style>
@@ -20,5 +24,15 @@
         border-bottom-style: solid;
         border-color: #ffffff;
         border-width: 2px;
+    }
+    .tab:hover {
+        color: #242426;
+        cursor: pointer;
+        transition: all 500ms;
+    }
+
+    .tab--state-active {
+        color: #242426;
+        border-color: #004759;
     }
 </style>
