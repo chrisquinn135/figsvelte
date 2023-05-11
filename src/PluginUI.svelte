@@ -1,19 +1,9 @@
 <script>
-	//import Global CSS from the svelte boilerplate
-	//contains Figma color vars, spacing vars, utility classes and more
-	import { GlobalCSS } from "figma-plugin-ds-svelte";
-
 	//import some Svelte Figma UI components
-	import { Button, Input, Label, SelectMenu } from "figma-plugin-ds-svelte";
 	import Tabbar from "./components/Tabbar";
+	import Button from "./components/Button.svelte"
 
-	var disabled = true;
-	var selectedShape;
-	var count = 5;
 
-	//this is a reactive variable that will return false when a value is selected from
-	//the select menu, its value is bound to the primary buttons disabled prop
-	$: disabled = selectedShape === null;
 
 	function darkChange() {
 		parent.postMessage(
@@ -35,9 +25,9 @@
 	<Tabbar />
 	<br />
 	<br />
-	<Button on:click={lightChange} bind:disabled>Change to Light</Button>
+	<Button on:click={lightChange} >Change to Light</Button>
 	<br />
-	<Button on:click={darkChange} bind:disabled>Change to Dark</Button>
+	<Button on:click={darkChange} >Change to Dark</Button>
 </div>
 
 <style>
@@ -194,10 +184,11 @@
 		font-weight: 500;
 	}
 
-	.text-md-semibold {
-		font: 14px "Libre Franklin";
+	.text-lg-med {
+		font: 16px "Libre Franklin";
 		font-weight: 500;
 	}
+
 
 	.text-lg-semibold {
 		font: 16px "Libre Franklin";

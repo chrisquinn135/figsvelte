@@ -1,11 +1,18 @@
 <script>
     import Tab from "./Tab.svelte";
+    import {activeTab } from '../store'
+
+    // set the active tab
+    let active;
+    activeTab.subscribe(value => {
+        active = value;
+    })
 </script>
 
 <div class="tabbar">
-    <Tab name={"Switcher"} id={"swap"} number={0} />
-    <Tab name={"History"} id={"history"} number={10} />
-    <Tab name={"Configuration"} id={"config"} number={0} />
+    <Tab name={"Switcher"} id={"swap"} number={0} isActive={active == "swap"}/>
+    <Tab name={"History"} id={"history"} number={10} isActive={active == "history"}/>
+    <Tab name={"Configuration"} id={"config"} number={0} isActive={active == "config"}/>
 </div>
 
 <style>

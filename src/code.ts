@@ -2,7 +2,7 @@
 // it will then create that many rectangles on the screen.
 
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__, { themeColors: true, width: 500 });
+figma.showUI(__html__, { themeColors: true, width: 500, height: 500 });
 
 let darkSurface0: BaseStyle;
 let lightSurface1: BaseStyle;

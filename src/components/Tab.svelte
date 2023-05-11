@@ -1,12 +1,25 @@
 <script>
     import Tag from "./Tag.svelte";
+    import { activeTab } from "../store";
 
+    export let isActive;
     export let name;
     export let id;
     export let number;
+
+    // set current tab
+    function onClick() {
+        activeTab.set(id)
+    }
 </script>
 
-<div class="tab text-md-reg">
+<div
+    class={`tab text-md-reg ${
+        isActive ? "tab--state-active" : "tab text-md-reg"
+    }`}
+    on:click={onClick}
+>
+    
     {name}
     {#if number}
         <Tag {number} />
