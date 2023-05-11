@@ -1,36 +1,17 @@
 <script>
 	//import some Svelte Figma UI components
 	import Tabbar from "./components/Tabbar";
-	import Button from "./components/Button.svelte"
-
-
-
-	function darkChange() {
-		parent.postMessage(
-			{
-				pluginMessage: {
-					type: "dark",
-				},
-			},
-			"*"
-		);
-	}
-
-	function lightChange() {
-		parent.postMessage({ pluginMessage: { type: "light" } }, "*");
-	}
+	import Swap from "./pages/Swap.svelte";
 </script>
 
-<div class="">
+<div class='container'>
 	<Tabbar />
-	<br />
-	<br />
-	<Button on:click={lightChange} >Change to Light</Button>
-	<br />
-	<Button on:click={darkChange} >Change to Dark</Button>
+	<Swap />
 </div>
 
-<style>
+<style global>
+
+
 	@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&display=swap");
 
 	/* Body Structures */
@@ -40,163 +21,53 @@
 		text-align: center;
 		margin: 0;
 		background-color: white;
-	}
-
-	.footer {
-		position: fixed;
-		bottom: 0px;
-		width: 100%;
-		background-color: #f9f9ff;
-	}
-
-	.header {
-		text-align: left;
-	}
-
-	.footer-contents {
-		display: flex;
-		flex-direction: row;
-		justify-content: right;
-		align-items: center;
-		gap: 24px;
-	}
-
-	.body {
-		text-align: left;
-		height: 76%;
-	}
-
-	/* List */
-	ul {
-		margin: 0px 24px;
-		padding-inline-start: 8px;
-	}
-
-	ul li {
-		margin: 8px;
-	}
-
-	/* Dividers */
-	hr.solid {
-		display: block;
-		height: 1px;
-		border: 0;
-		border-top: 1px solid #ebebf0;
-		margin: 0px;
-		padding: 0;
-	}
-
-	hr.setting {
-		display: block;
-		height: 1px;
-		border: 0;
-		border-top: 1px solid #ebebf0;
-		margin: 0px;
-		padding: 0;
-	}
-
-	/* Borders */
-	.border-round {
-		border-style: solid;
-		border-width: 1px;
-		border-color: #ebebf0;
-		border-radius: 8px;
-	}
-
-	.border-round--focus {
-		border-style: solid;
-		border-width: 1px;
-		border-color: #03a1c7;
-		background-color: #f9f9ff;
-		border-radius: 8px;
-		transition: all 500ms;
-	}
-
-	.border-round:hover {
-		border-color: #bcbcc0;
-		background-color: #f9f9ff;
-		transition: all 200ms;
-		cursor: pointer;
-	}
-
-	/* Flexbox */
-	.flexbox {
-		display: flex;
+		display:flex;
 		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		gap: 8px;
-	}
-
-	.flexbox-stretch {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: stretch;
-		gap: 8px;
-	}
-
-	.flexbox--right {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		text-align: left;
-		align-items: start;
-		gap: 8px;
-	}
-
-	.flexbox--right-center {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		text-align: left;
-		align-items: center;
-		gap: 8px;
-	}
-
-	/* Spacings */
-	.spacing-horizontal-16 {
-		margin: 0px 16px;
-	}
-
-	.spacing-16 {
-		padding: 16px;
+		height:100%;
 	}
 
 	/* Text */
-	.text-sm-reg {
+	:global(.text-sm-reg) {
 		font: 12px "Libre Franklin";
 		font-weight: 400;
 	}
 
-	.text-sm-med {
+	:global(.text-sm-med) {
 		font: 12px "Libre Franklin";
 		font-weight: 500;
 	}
 
-	.text-md-reg {
+	:global(.text-md-reg) {
 		font: 14px "Libre Franklin";
 		font-weight: 400;
 	}
 
-	.text-md-med {
+	:global(.text-md-med) {
 		font: 14px "Libre Franklin";
 		font-weight: 500;
 	}
 
-	.text-lg-med {
+	:global(.text-lg-reg) {
+		font: 14px "Libre Franklin";
+		font-weight: 400;
+	}
+
+	:global(.text-lg-med) {
 		font: 16px "Libre Franklin";
 		font-weight: 500;
 	}
 
-
-	.text-lg-semibold {
-		font: 16px "Libre Franklin";
-		font-weight: 600;
-	}
-
-	.text-xl-semibold {
+	:global(.text-xl-med) {
 		font: 18px "Libre Franklin";
-		font-weight: 600;
+		font-weight: 500;
 	}
+
+
+	/* Non-global style */
+	.container {
+		display: flex;
+		flex-grow: 1;
+		flex-direction: column
+	}
+
 </style>

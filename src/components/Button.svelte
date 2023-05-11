@@ -2,7 +2,7 @@
     export let onClick;
 </script>
 
-<button class="button-secondary text-lg-med">
+<button class="button-secondary text-lg-med" on:click={onClick}>
     <slot></slot>
 </button>
 
@@ -11,6 +11,7 @@
         border: 1px solid #808080;
         border-radius: 8px;
         padding: 8px 16px;
+        flex-grow: 1;
         background-color: #ffffff;
         color: #121212;
     }

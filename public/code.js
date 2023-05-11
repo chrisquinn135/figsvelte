@@ -27,9 +27,10 @@ function __awaiter(thisArg, _arguments, P, generator) {
 
 // This plugin will open a modal to prompt the user to enter a number, and
 // This shows the HTML page in "ui.html".
-figma.showUI(__html__, { themeColors: true, width: 500, height: 500 });
+figma.showUI(__html__, { themeColors: true, width: 500, height: 400 });
 let darkSurface0;
 let lightSurface1;
+let currentSelection = [];
 // This file holds the main code for the plugins. It has access to the *document*.
 // You can access browser APIs in the <script> tag inside "ui.html" which has a
 // full browser enviroment (see documentation).
@@ -96,3 +97,13 @@ function traverse(node, theme) {
         }
     }
 }
+// Selecting focused layers
+figma.on("selectionchange", () => {
+    currentSelection = [];
+    figma.currentPage.selection.forEach((el) => {
+        if (el.name) {
+            currentSelection.push(el.name);
+        }
+    });
+    figma.ui.postMessage({ currentSelection: currentSelection });
+});

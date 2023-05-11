@@ -15,11 +15,10 @@
 
 <div
     class={`tab text-md-reg ${
-        isActive ? "tab--state-active" : "tab text-md-reg"
+        isActive ? "tab--state-active" : ""
     }`}
     on:click={onClick}
 >
-    
     {name}
     {#if number}
         <Tag {number} />
