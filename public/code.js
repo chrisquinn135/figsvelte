@@ -60,11 +60,15 @@ figma.ui.onmessage = msg => {
         // console.log(styles)
         // const styles = figma.getStyleById('S:4baf19645d0857995f045fea92c38e80067f605a,');
         // console.log(styles)
-        traverse(figma.currentPage, 'Light');
+        figma.currentPage.selection.forEach(e => {
+            traverse(e, 'Light');
+        });
     }
     // Change to Dark Theme
     if (msg.type === 'dark') {
-        traverse(figma.currentPage, 'Dark');
+        figma.currentPage.selection.forEach(e => {
+            traverse(e, 'Dark');
+        });
     }
     // Make sure to close the plugin when you're done. Otherwise the plugin will
     // keep running, which shows the cancel button at the bottom of the screen.

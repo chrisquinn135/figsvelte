@@ -48,13 +48,18 @@
 	}
 
 	:global(.text-lg-reg) {
-		font: 14px "Libre Franklin";
+		font: 16px "Libre Franklin";
 		font-weight: 400;
 	}
 
 	:global(.text-lg-med) {
 		font: 16px "Libre Franklin";
 		font-weight: 500;
+	}
+
+	:global(.text-xl-reg) {
+		font: 18px "Libre Franklin";
+		font-weight: 400;
 	}
 
 	:global(.text-xl-med) {
