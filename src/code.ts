@@ -1,38 +1,3 @@
-// This plugin will open a modal to prompt the user to enter a number, and
-// it will then create that many rectangles on the screen.
-
-// This shows the HTML page in "ui.html".
-figma.showUI(__html__, { themeColors: true, width: 500, height: 400 });
-
-let darkSurface0: BaseStyle;
-let lightSurface1: BaseStyle;
-
-let currentSelection = [];
-// This file holds the main code for the plugins. It has access to the *document*.
-// You can access browser APIs in the <script> tag inside "ui.html" which has a
-// full browser enviroment (see documentation).
-
-// This plugin will open a modal to prompt the user to enter a number, and
-// it will then create that many rectangles on the screen.
-// This file holds the main code for the plugins. It has access to the *document*.
-// You can access browser APIs in the <script> tag inside "ui.html" which has a
-// full browser enviroment (see documentation).
-// This shows the HTML page in "ui.html".
-
-// Calls to "parent.postMessage" from within the HTML page will trigger this
-// callback. The callback will be passed the "pluginMessage" property of the
-// posted message.
-async function getStyles() {
-    // grabbing the test styles
-    darkSurface0 = await figma.importStyleByKeyAsync('abc2d581e122b5a0426eccf256503e0570115976');
-    lightSurface1 = await figma.importStyleByKeyAsync('4baf19645d0857995f045fea92c38e80067f605a');
-}
-
-getStyles();
-
-figma.ui.onmessage = msg => {
-    // One way of distinguishing between different types of messages sent from
-    // your HTML page is to use an object with a "type" property like this.
 
     console.log("TEST")
     // Change to Light Theme
